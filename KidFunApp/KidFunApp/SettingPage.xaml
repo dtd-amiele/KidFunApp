@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" 
+             x:Class="KidFunApp.SettingPage"  BackgroundColor="#D8CBB2" >
+
+        <NavigationPage.TitleView>
+            <Label Text="Setting" FontSize="30" TextColor="#FFFFFF" VerticalOptions="CenterAndExpand" />
+        </NavigationPage.TitleView>
+
+    <!-- Use Relative layout to put the background image - full screen-->
+    <RelativeLayout  >
+        <!-- Back ground image-->
+        <Image Source="concreteWall.png" 
+               RelativeLayout.WidthConstraint="{ConstraintExpression 
+                    Type=RelativeToParent, 
+                    Property=Width}"
+               RelativeLayout.HeightConstraint = "{ConstraintExpression 
+                    Type=RelativeToParent, 
+                    Property=Height}" 
+               Aspect="Fill"/>
+
+        <!-- Use stackLayout to align the button in vertical-->
+        <StackLayout HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" 
+                     RelativeLayout.WidthConstraint="{ConstraintExpression 
+                    Type=RelativeToParent, 
+                    Property=Width}"
+                    RelativeLayout.HeightConstraint = "{ConstraintExpression 
+                    Type=RelativeToParent, 
+                    Property=Height}"  >
+
+            <!-- Use grid to create a Box with image and label -->
+            <Grid x:Name="SoundSetting" BackgroundColor="#D57C4F"   WidthRequest="350" >
+                <!-- use Tapped gesture recognize to identify when user tap the button -->
+                <Grid.GestureRecognizers>
+                <TapGestureRecognizer Tapped="SoundSetting_Tapped" NumberOfTapsRequired="1"/>
+                </Grid.GestureRecognizers>
+                <BoxView BackgroundColor="#A83E2A" CornerRadius="5" WidthRequest="350" HeightRequest="70" />
+                <Grid BackgroundColor="#D57C4F" WidthRequest="340" HeightRequest="60" 
+                      VerticalOptions="CenterAndExpand"  HorizontalOptions="CenterAndExpand">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="0.3*"/>
+                    <ColumnDefinition Width="0.7*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions >
+                    <RowDefinition />
+                </Grid.RowDefinitions>
+                <Image x:Name="soundImg" BackgroundColor="Transparent"  Grid.Column="0" Grid.Row="0"
+                           HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand"
+                           HeightRequest="50" />
+                <Label x:Name="soundText" Text="SOUND : ON"  FontSize="30" TextColor="White" Grid.Column="1" Grid.Row="0" 
+                           HorizontalOptions="StartAndExpand"
+                           VerticalOptions="CenterAndExpand"
+                           />
+                </Grid>
+            </Grid>
+
+
+            <!-- Account Setting Button-->
+            <Button Text="ACCOUNT SETTING" 
+                    BackgroundColor="#D57C4F" 
+                    BorderColor="#A83E2A" 
+                    BorderWidth="5"
+                    FontSize="30"
+                    CornerRadius="5"
+                    HorizontalOptions="CenterAndExpand" 
+                    VerticalOptions="CenterAndExpand"
+                    WidthRequest="350" 
+                    HeightRequest="70"
+                    TextColor="White"
+                    Margin="0, 30" >
+
+            </Button>
+
+            <!-- About the app Button-->
+            <Button Text="ABOUT THE APP" 
+                    BackgroundColor="#D57C4F" 
+                    BorderColor="#A83E2A" 
+                    BorderWidth="5"
+                    FontSize="30"
+                    CornerRadius="5"
+                    HorizontalOptions="CenterAndExpand" 
+                    VerticalOptions="CenterAndExpand"
+                    TextColor="White"
+                    HeightRequest="70"
+                    WidthRequest="350">
+
+            </Button>
+
+
+        </StackLayout>
+    </RelativeLayout>
+</ContentPage>

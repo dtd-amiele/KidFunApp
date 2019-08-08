@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="KidFunApp.GamePage">
+
+    <RelativeLayout  >
+
+        <Image Source="concreteWall.png" 
+
+               RelativeLayout.WidthConstraint="{ConstraintExpression 
+                    Type=RelativeToParent, 
+                    Property=Width}"
+               RelativeLayout.HeightConstraint = "{ConstraintExpression 
+                    Type=RelativeToParent, 
+                    Property=Height}" 
+               Aspect="Fill"
+    />
+        <!-- Create Grid for show game list - can use to expand the game list later on -->
+        <Grid x:Name="gameContent"   ColumnSpacing="0" RowSpacing="0"
+  RelativeLayout.WidthConstraint="{ConstraintExpression 
+                    Type=RelativeToParent, 
+                    Property=Width}"
+               RelativeLayout.HeightConstraint = "{ConstraintExpression 
+                    Type=RelativeToParent, 
+                    Property=Height}"
+              
+              >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="250"  />
+
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="250" />
+
+
+            </Grid.ColumnDefinitions>
+
+            <Grid Grid.Column="0" Grid.Row="0"  Margin="10">
+                <!-- When user tap to the game, link to the Math game page-->
+                <Grid.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="mathGame_Tapped" NumberOfTapsRequired="1"/>
+                </Grid.GestureRecognizers>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="9*"  />
+                    <RowDefinition Height="1*"   />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <BoxView  BackgroundColor="Transparent" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                     Grid.Column="0" Grid.Row="0"/>
+                <Image Source="gMaths.png" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                     Grid.Column="0" Grid.Row="0" Margin="10,8" />
+                <Label Text="Mathematics" TextColor="#B85929" 
+                    FontSize="15" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                   Grid.Row="1" Grid.Column="0"   Margin="0,0,0,3"
+                   
+                   VerticalTextAlignment="Center"  HorizontalTextAlignment="Center" FontAttributes="Bold"/>
+            </Grid>
+            <!--
+        <Grid Grid.Column="1" Grid.Row="0" BackgroundColor="Pink">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="7*"  />
+                <RowDefinition Height="3*"  />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <BoxView BackgroundColor="Yellow" HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand"
+                     Grid.Column="0" Grid.Row="0"/>
+            <Label Text="Mathematics" Grid.Row="1" Grid.Column="0" HorizontalOptions="CenterAndExpand"/>
+        </Grid> -->
+
+        </Grid>
+    </RelativeLayout>
+</ContentPage>

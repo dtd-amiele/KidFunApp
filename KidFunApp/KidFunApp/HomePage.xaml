@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+    
+ <!-- TabbedPage contains 3 other Pages : GamePage, WatchPage and PhotoPage-->
+<TabbedPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:local ="clr-namespace:KidFunApp"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="KidFunApp.HomePage" 
+            BackgroundColor="#E6D9BE"  BarTextColor="#A83E2A"  SelectedTabColor="AliceBlue" UnselectedTabColor="Black" BarBackgroundColor="#F6EFD8" 
+            >
+
+    <!-- Design the Navigation Page with the title Home -->
+    <NavigationPage.TitleView>
+        <Label Text="Home" FontSize="30" TextColor="#FFFFFF" VerticalOptions="CenterAndExpand" />
+    </NavigationPage.TitleView>
+    <!-- Three tabbed pages are declared below -->
+    <local:GamePage Title="Game" />
+    <local:WatchPage Title="Watch"/>
+    <local:PhotoPage Title="Photo"/>
+    
+</TabbedPage>

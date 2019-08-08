@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="KidFunApp.MathGame" 
+             NavigationPage.HasNavigationBar="False" 
+             BackgroundColor="#A66F17">
+    
+    
+
+        <!-- The Math game has 3 different view, one is the starting view with the name, image and play Button
+        When user clicks play button the starting view is disappear and the content view appears instead
+        If user lose all 10 lives, the game over page is appeared -->
+        <AbsoluteLayout  VerticalOptions="FillAndExpand" HorizontalOptions="Fill" Margin="15" BackgroundColor="#056F2D" >
+        
+            <Label x:Name="mathName" Text="MATHEMATICS GAME" TextColor="#FFFFFF" 
+               FontSize="40" IsVisible="true"
+               AbsoluteLayout.LayoutBounds="0.5,0,0.7,0.3" AbsoluteLayout.LayoutFlags="All"/>
+            <Image x:Name="owl"  Source="owl.png" 
+                       AbsoluteLayout.LayoutBounds="-0.3,0.8,0.7,0.7" AbsoluteLayout.LayoutFlags="All"
+                       IsVisible="true"/>
+            <Image  x:Name="mathSymbol"  Source="math.png" HeightRequest="200" 
+                         AbsoluteLayout.LayoutBounds="1,0.4,0.5,0.5" AbsoluteLayout.LayoutFlags="All"
+                        IsVisible="true"/>
+            <!-- Play button to show the content page and disapear the first view of game-->
+            <Button x:Name="gameButton" Text="PLAY" 
+                    AbsoluteLayout.LayoutBounds="0.7,0.9,100,60" AbsoluteLayout.LayoutFlags="PositionProportional"
+                    BackgroundColor="#351935" TextColor="#FFFFFF"  IsVisible="true"
+                    Clicked="mathButton_Clicked" />
+
+            <!-- Use stacklayout to create the content of the game page 
+            - for start, this layout is invisible untill the play button is clicked-->
+
+            <StackLayout x:Name ="gameContent" Orientation="Vertical"  Spacing="0" 
+                     AbsoluteLayout.LayoutBounds="0,0,1,1" AbsoluteLayout.LayoutFlags="All"         
+                     IsVisible="False">
+                
+                <StackLayout x:Name="gameLives" Orientation="Horizontal" Padding="0,0,10,0" >
+                    <Button x:Name="gameScore" Text="SCORE: 0 " CornerRadius="10" HeightRequest="50" WidthRequest="150" 
+                        FontSize="20" Margin="10"
+                        BackgroundColor="#49AB4F" TextColor="#FFFFFF" HorizontalOptions="StartAndExpand" />
+                    <Image x:Name="heart1" Source="heart.png" HeightRequest="35"/>
+                    <Image x:Name="heart2" Source="heart.png" HeightRequest="35"/>
+                    <Image x:Name="heart3" Source="heart.png" HeightRequest="35"/>
+                    <Image x:Name="heart4" Source="heart.png" HeightRequest="35"/>
+                    <Image x:Name="heart5" Source="heart.png" HeightRequest="35"/>
+                    <Image x:Name="heart6" Source="heart.png" HeightRequest="35"/>
+                    <Image x:Name="heart7" Source="heart.png" HeightRequest="35"/>
+                    <Image x:Name="heart8" Source="heart.png" HeightRequest="35"/>
+                    <Image x:Name="heart9" Source="heart.png" HeightRequest="35"/>
+                    <Image x:Name="heart10" Source="heart.png" HeightRequest="35"/>
+                </StackLayout>
+                <Label x:Name="questionID" Text="QUESTION 1" TextColor="#FFFFFF" FontSize="40" HorizontalOptions="CenterAndExpand" />
+           
+                <!-- The question detail-->
+                <StackLayout Orientation="Horizontal"  HorizontalOptions="CenterAndExpand">
+                    <Label x:Name="number1" Text="2" TextColor="#FFFFFF" FontSize="60" Margin="15,5"></Label>
+                    <Label Text="+" TextColor="#FFFFFF" FontSize="60" Margin="15,5"></Label>
+                    <Label x:Name="number2" Text="2" TextColor="#FFFFFF" FontSize="60" Margin="15,5"></Label>
+                    <Label Text="=" TextColor="#FFFFFF" FontSize="60" Margin="15,5"></Label>
+                    <Label x:Name="answer" Text="?" TextColor="#FFFFFF" FontSize="60" Margin="15,5"></Label>
+                </StackLayout>
+            
+                <!-- Continue button to go to next question-->
+                <Button x:Name="gameContinue" Text="Continue " CornerRadius="10" HeightRequest="50" WidthRequest="130" 
+                    FontSize="15"  Clicked="GameContinue_Clicked"
+                    BackgroundColor="#60BDEA" TextColor="#FFFFFF" HorizontalOptions="CenterAndExpand" />
+
+                <!-- List numbers to choose from-->
+                <StackLayout Orientation="Horizontal" 
+                         Margin="0,0,0,10"
+                         VerticalOptions="EndAndExpand" HorizontalOptions="CenterAndExpand">
+                    <Image x:Name="img0" Source="num0.png" HeightRequest="60"/>
+                    <Image x:Name="img1" Source="num1.png" HeightRequest="60"/>
+                    <Image x:Name="img2" Source="num2.png" HeightRequest="60"/>
+                    <Image x:Name="img3" Source="num3.png" HeightRequest="60"/>
+                    <Image x:Name="img4" Source="num4.png" HeightRequest="60"/>
+                    <Image x:Name="img5" Source="num5.png" HeightRequest="60"/>
+                    <Image x:Name="img6" Source="num6.png" HeightRequest="60"/>
+                    <Image x:Name="img7" Source="num7.png" HeightRequest="60"/>
+                    <Image x:Name="img8" Source="num8.png" HeightRequest="60"/>
+                    <Image x:Name="img9" Source="num9.png" HeightRequest="60"/>
+                </StackLayout>
+            </StackLayout>
+            
+            <!-- Box view to create the border for the game over panel-->
+            <BoxView x:Name="gameFailBorder" AbsoluteLayout.LayoutBounds="0.5,0.5,420,320" AbsoluteLayout.LayoutFlags="PositionProportional" 
+                    BackgroundColor="#167CAD" CornerRadius="10"
+                    IsVisible="False"/>
+            <StackLayout x:Name ="gameFail" Orientation="Vertical"  Spacing="0" 
+                     AbsoluteLayout.LayoutBounds="0.5,0.5,400,300" AbsoluteLayout.LayoutFlags="PositionProportional" 
+                     BackgroundColor="#C9EAF7" Padding="10" 
+                     IsVisible="false">
+                <Label 
+                   
+                        Text="GAME OVER"
+                        FontSize="30"
+                        HorizontalOptions="CenterAndExpand" 
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="350" 
+                        HeightRequest="70"
+                        TextColor="#B85929"
+                        FontAttributes="Bold"
+                        HorizontalTextAlignment="Center"
+                       />
+                <!-- High Score label -->
+                <Label x:Name="highScore"
+                   
+                  
+                        FontSize="30"
+                        HorizontalOptions="CenterAndExpand" 
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="350" 
+                        HeightRequest="70"
+                        TextColor="#B85929"
+                        FontAttributes="Bold"
+                       HorizontalTextAlignment="Center"
+       
+                       />
+
+                <!-- Current Score label -->
+                <Label x:Name="currentScore"
+            
+                        FontSize="30"
+                        HorizontalOptions="CenterAndExpand" 
+                        VerticalOptions="CenterAndExpand"
+                       HorizontalTextAlignment="Center"
+                        WidthRequest="350" 
+                        HeightRequest="70"
+                        TextColor="#B85929"
+                       FontAttributes="Bold"
+   
+                       />
+
+                <!-- Restart Button -->
+                <Button x:Name="restartButton" 
+                        BackgroundColor="#60BDEA" 
+                        BorderColor="#FFFFFF" 
+                        BorderWidth="5"
+                        FontSize="30"
+                        CornerRadius="10"
+                        HorizontalOptions="CenterAndExpand" 
+                        VerticalOptions="CenterAndExpand"
+                        WidthRequest="350" 
+                        HeightRequest="70"
+                        TextColor="#FFFFFF"
+                
+                        Text="RESTART"
+                        Clicked="RestartButton_Clicked"/>
+
+
+            </StackLayout>
+                     
+                    
+
+        </AbsoluteLayout>
+
+
+
+
+
+</ContentPage>

@@ -1,0 +1,62 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="KidFunApp.PhotoPage">
+    
+    <!--Use scrollview to make the screen scrollable -->
+    <ScrollView >
+
+        <!-- Use grid to create images view
+        Grid has 5 rows and 3 columns 
+        -->
+        <Grid ColumnSpacing="5" RowSpacing="5">
+            <Grid.RowDefinitions>
+                <RowDefinition  />
+                <RowDefinition  />
+                <RowDefinition  />
+                <RowDefinition  />
+                <RowDefinition  />
+            </Grid.RowDefinitions>
+            
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition  />
+                <ColumnDefinition  />
+                <ColumnDefinition  />
+            </Grid.ColumnDefinitions>
+            
+            <!-- Use box View to create border for image-->
+            <BoxView Grid.Column="0" Grid.Row="0" BackgroundColor="Brown" />
+            <BoxView Grid.Column="1" Grid.Row="0" BackgroundColor="Brown" />
+            <BoxView Grid.Column="2" Grid.Row="0" BackgroundColor="Brown" />
+            <BoxView Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" BackgroundColor="Brown" />
+            <BoxView Grid.Column="2" Grid.Row="1" BackgroundColor="Brown" />
+            <BoxView Grid.Column="1" Grid.Row="1" BackgroundColor="Brown" />
+            <BoxView Grid.Column="1" Grid.Row="2" BackgroundColor="Brown" />
+            <BoxView Grid.Column="2" Grid.Row="2" BackgroundColor="Brown" />
+            <BoxView Grid.Column="0" Grid.Row="3" BackgroundColor="Brown" />
+            <BoxView Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" BackgroundColor="Brown" />
+            <BoxView Grid.Column="1" Grid.Row="4" BackgroundColor="Brown" />
+            <BoxView Grid.Column="2" Grid.Row="4" BackgroundColor="Brown" />
+            <BoxView Grid.Column="0" Grid.Row="4" BackgroundColor="Brown" />
+            
+            <!-- Images -->
+            <Image Source="bear.png" Grid.Column="0" Grid.Row="0" BackgroundColor="#FFFF79" Margin="10"/>
+            <Image Source="tiger.png" Grid.Column="1" Grid.Row="0" BackgroundColor="#FFFF79" Margin="10"/>
+            <Image Source="lion.png" Grid.Column="2" Grid.Row="0" BackgroundColor="#FFFF79" Margin="10"/>
+            <Image Source="giraffe1.png" Grid.Column="0" Grid.Row="1" Grid.RowSpan="2" BackgroundColor="#FFFF79" Margin="10"/>
+            <Image Source="dog.png" Grid.Column="2" Grid.Row="1" BackgroundColor="#FFFF79" Margin="10"/>
+            <Image Source="monkey.png" Grid.Column="1" Grid.Row="1" BackgroundColor="#FFFF79" Margin="10"/>
+            <Image Source="crab.png" Grid.Column="1" Grid.Row="2" BackgroundColor="#FFFF79" Margin="10"/>
+            <Image Source="dolphin.png" Grid.Column="2" Grid.Row="2" BackgroundColor="#FFFF79" Margin="10"/>
+            <Image Source="whale.png" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" BackgroundColor="#FFFF79" Margin="10"/>
+            <Image Source="turtle.png" Grid.Column="0" Grid.Row="3" BackgroundColor="#FFFF79" Margin="10"/>
+            <Image Source="optopus.png" Grid.Column="0" Grid.Row="4" BackgroundColor="#FFFF79" Margin="10"/>
+            <Image Source="shark.png" Grid.Column="1" Grid.Row="4" BackgroundColor="#FFFF79" Margin="10"/>
+            <Image Source="elephant.png" Grid.Column="2" Grid.Row="4" BackgroundColor="#FFFF79" Margin="10"/>
+
+        </Grid>
+    </ScrollView>
+</ContentPage>
